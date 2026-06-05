@@ -3,18 +3,17 @@ name: serialization-regulatory-research
 description: >
   Research serialization and track & trace (T&T) regulatory requirements for a specific country
   and produce a structured, implementation-ready summary. Use this skill whenever the user asks
-  about: product serialization obligations, unique identifier / barcode requirements, track and
-  trace system setup, national repository or database registration, anti-counterfeiting or
-  tamper-evident requirements, verification at point of dispensing, aggregation obligations,
-  implementation timelines, serialization fees, or penalties for non-compliance — for any
-  product category in any country. Covers pharmaceutical, veterinary medicine, medical device,
-  cosmetic, food supplement, and other regulated product categories. Trigger for: "serialization
-  requirements in [country]", "track and trace obligations for [product] in [country]",
-  "do I need to serialize my product for [country]", "Tatmeen / EMVS / DSCSA / MDLP
-  requirements", "barcode requirements for [country]", "national repository registration
-  [country]". Always apply the full structured workflow even if the user asks about only one
-  layer (e.g., just barcoding or just timelines).
+  about: serialization obligations, unique identifier/barcode requirements, T&T system setup,
+  national repository registration, anti-counterfeiting or tamper-evident requirements,
+  point-of-dispensing verification, aggregation, implementation timelines, serialization fees,
+  or non-compliance penalties — for any product category in any country. Covers pharmaceutical,
+  veterinary, medical device, cosmetic, food supplement, and other regulated categories.
+  Trigger for: "serialization requirements in [country]", "track and trace for [product] in
+  [country]", "do I need to serialize for [country]", "Tatmeen/EMVS/DSCSA/MDLP requirements",
+  "barcode requirements for [country]", "national repository [country]". Always apply the full
+  workflow even if the user asks about only one layer (e.g., just barcoding or timelines).
 ---
+
 
 # Serialization & Track and Trace Regulatory Research Skill
 
