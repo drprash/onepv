@@ -601,3 +601,6 @@ when flagging ⚠️ deviations.
   business cases but must not be conflated
 - Keep Business Considerations concise — it is for decision-makers, not technical implementers
 - If producing as a document (Word/PDF), use the docx or pdf skill accordingly
+- End the report with one line suggesting related research for the same country, if those skills
+  are available: product registration (`pharma-regulatory-research` or `vet-regulatory-research`)
+  and pharmacovigilance obligations (`pv-regulatory-research`)

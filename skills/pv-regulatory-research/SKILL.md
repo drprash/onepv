@@ -552,3 +552,6 @@ baseline when flagging ⚠️ deviations.
 - The optional Compliance Readiness Checklist uses checkbox format tied to this country's
   actual obligations — do not use a generic template
 - If producing as a document (Word/PDF), use the docx or pdf skill accordingly
+- End the report with one line suggesting related research for the same country, if those skills
+  are available: product registration (`pharma-regulatory-research`) and serialization / track &
+  trace (`serialization-regulatory-research`)

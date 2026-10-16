@@ -71,6 +71,28 @@ total_treatment\
 events_control\
 total_control
 
+Show the extracted numbers to the user and confirm the arm labels
+before calculating. If the text is ambiguous (e.g. percentages without
+denominators), ask rather than guess.
+
+------------------------------------------------------------------------
+
+# Calculation Script (use whenever code execution is available)
+
+Run the bundled script with the extracted counts instead of calculating
+by hand. It performs Steps 2--7 and 11 exactly (RR, OR, RD with 95% CIs,
+ARR, RRR, NNT/NNH with CI, Pearson and Yates chi-square, two-sided
+Fisher exact, Haldane--Anscombe correction, meta-analysis inputs):
+
+    python3 scripts/analyze_2x2.py --events-treatment 45 --total-treatment 200 \
+      --events-control 60 --total-control 200 \
+      --treatment-label "Drug A" --control-label "Placebo"
+
+Add `--json` for raw values. Use the script's numbers verbatim in the
+report; write Steps 9--10 (manuscript summary, interpretation) from
+them. If code execution is unavailable, compute manually using the
+formulas below and say that results were calculated without code.
+
 ------------------------------------------------------------------------
 
 # Step 2 --- Reconstruct 2×2 Table
@@ -137,7 +159,7 @@ Round upward.
 
 Number Needed to Harm
 
-NNH = 1 / ARI
+NNH = 1 / ARI (ARI = EER − CER, when treatment increases risk)
 
 ------------------------------------------------------------------------
 
