@@ -7,7 +7,8 @@ A collection of open-source scripts, tools, and AI skills to aid in pharmacovigi
 ## Contents
 
 - [HighLit — Safety Literature Highlight Tool](#highlit--safety-literature-highlight-tool)
-- [Claude Code Skills](#claude-code-skills)
+- [Claude Skills](#claude-skills)
+  - [How to install on claude.ai](#how-to-install-on-claudeai)
   - [Clinical 2×2 Study Analyzer](#clinical-22-study-analyzer)
   - [Pharmaceutical Regulatory Research](#pharmaceutical-regulatory-research)
   - [Pharmacovigilance Regulatory Research](#pharmacovigilance-regulatory-research)
@@ -33,13 +34,51 @@ See the [HighLit README](HighLit/README.md) for installation and usage instructi
 
 ---
 
-## Claude Code Skills
+## Claude Skills
 
 **Location:** [`skills/`](skills/)
 
-A set of structured AI skills for use with [Claude Code](https://claude.ai/code). Each skill encodes a specialist research or analysis workflow that Claude follows step-by-step.
+A set of structured AI skills for use with [Claude](https://claude.ai). Each skill encodes a specialist research or analysis workflow that Claude follows step-by-step. Once installed, you just ask Claude your question in a normal chat (for example, *"What are the PV requirements in Saudi Arabia?"*) and it uses the right skill automatically.
 
 See the [skills README](skills/README.md) for the full list and descriptions.
+
+### How to install on claude.ai
+
+No technical knowledge is needed. You do this once per skill.
+
+**1. Download the skill you want** (each link downloads a `.zip` file — do not unzip it):
+
+| Skill | Download |
+|-------|----------|
+| Clinical 2×2 Study Analyzer | [clinical-2x2-study-analyzer.zip](https://github.com/drprash/onepv/releases/latest/download/clinical-2x2-study-analyzer.zip) |
+| Pharmaceutical Regulatory Research | [pharma-regulatory-research.zip](https://github.com/drprash/onepv/releases/latest/download/pharma-regulatory-research.zip) |
+| Pharmacovigilance Regulatory Research | [pv-regulatory-research.zip](https://github.com/drprash/onepv/releases/latest/download/pv-regulatory-research.zip) |
+| Serialization & Track and Trace Research | [serialization-regulatory-research.zip](https://github.com/drprash/onepv/releases/latest/download/serialization-regulatory-research.zip) |
+| Veterinary Regulatory Research | [vet-regulatory-research.zip](https://github.com/drprash/onepv/releases/latest/download/vet-regulatory-research.zip) |
+
+**2. Turn on code execution** (one-time setup)
+- Go to **Settings → Capabilities** and switch on **Code execution and file creation**.
+- On a Team or Enterprise plan, your workspace owner may need to enable **Skills** and code execution for the organisation first.
+
+**3. Upload the skill**
+- Go to **Customize → Skills**.
+- Click **+**, then **+ Create skill**, then **Upload a skill**.
+- Choose the `.zip` file you downloaded.
+- The skill now appears in your skills list. Make sure its switch is **on**.
+
+**4. Use it**
+- Start a new chat and ask your question in plain language.
+- For the regulatory research skills, make sure **Web search** is turned on in the chat's tools menu — these skills look up current official sources.
+- Claude will first ask a few questions about your product and situation. Answer them as best you can; the answers shape the whole report.
+
+**Tips**
+- **One country per chat.** For a multi-country comparison, research each country in its own chat, then compare the results.
+- **Updating a skill.** The download links above always give the newest version (see [Releases](https://github.com/drprash/onepv/releases) for what changed). To update, download the `.zip` again, delete the old skill from **Customize → Skills**, and upload the new one.
+- **Upload failed?** Make sure you uploaded the `.zip` file exactly as downloaded, without unzipping or renaming it.
+
+> Menu names on claude.ai change from time to time. If anything above doesn't match what you see, follow Anthropic's official guide: [Using Skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude).
+
+**For maintainers:** pushing a change under `skills/` to `main` automatically validates and packages every skill and publishes a new GitHub Release ([workflow](.github/workflows/release-skills.yml)). To check a skill locally before pushing, run `python3 scripts/package_skills.py` (writes `dist/*.zip`, which is git-ignored).
 
 ### Clinical 2×2 Study Analyzer
 

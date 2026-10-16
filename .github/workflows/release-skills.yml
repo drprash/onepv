@@ -1,0 +1,56 @@
+# Builds upload-ready skill ZIPs and publishes them as a GitHub Release
+# whenever a skill changes on main. README download links point at
+# releases/latest/download/<skill>.zip, so they always serve the newest build.
+name: Release skills
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "scripts/package_skills.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-skills
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate and package skills
+        run: python3 scripts/package_skills.py
+
+      - name: Write release notes
+        id: notes
+        run: |
+          tag="skills-$(date -u +%Y.%m.%d)-${GITHUB_RUN_NUMBER}"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          prev=$(git tag --list 'skills-*' --sort=-creatordate | head -n1)
+          range="${prev:+$prev..}HEAD"
+          {
+            echo "Upload-ready skills for claude.ai. Download the \`.zip\` for the skill you need and follow the [install guide](https://github.com/${GITHUB_REPOSITORY}#how-to-install-on-claudeai)."
+            echo
+            echo "### Changes"
+            git log --no-merges --format='- %s (%h)' "$range" -- skills scripts/package_skills.py
+          } > release-notes.md
+          cat release-notes.md
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.notes.outputs.tag }}" dist/*.zip \
+            --title "Skills ${{ steps.notes.outputs.tag }}" \
+            --notes-file release-notes.md \
+            --target "$GITHUB_SHA" \
+            --latest

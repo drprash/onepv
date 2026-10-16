@@ -1,10 +1,9 @@
 ---
+name: clinical-2x2-study-analyzer
 description: Extracts binary outcome data from raw clinical study text,
   reconstructs 2x2 contingency tables, and produces publication-ready
   epidemiological risk analysis including RR, OR, ARR, NNT, confidence
   intervals, and statistical tests.
-name: clinical-2x2-study-analyzer
-tools: python
 ---
 
 # Clinical Study 2×2 Outcome Analyzer

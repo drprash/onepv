@@ -79,6 +79,9 @@ holder and QPPV designation (see "PV Role Tailoring" below).
 Search for the **competent authority responsible for pharmacovigilance oversight** in the target
 country. This may be the same as the marketing authorization authority or a separate body.
 
+If the country falls in a region listed under "Regional PV Authority Reference" below, read
+that region's file in `references/` first as a starting point (one file only).
+
 Also identify:
 - The **national PV database or reporting portal** (e.g., VigiFlow, EudraVigilance, national
   portal, MedWatch)
@@ -492,104 +495,21 @@ yet have, **flag it explicitly as a pre-launch prerequisite** before the obligat
 
 ## Regional PV Authority Reference
 
-### GCC (Gulf Cooperation Council)
+Region-specific authority tables and PV notes are kept in separate files under `references/`.
+**Read only the file for the region of the target country** (during Step 2), and treat it as a
+starting point: always verify against current official sources, since authorities and portals change.
 
-The GCC Pharmacovigilance Guidelines provide a shared regional framework. Member states may
-add country-specific requirements on top. Always research country-level obligations separately.
+| Region | File | Covers |
+|--------|------|--------|
+| GCC | `references/gcc.md` | UAE, Saudi Arabia, Kuwait, Qatar, Bahrain, Oman |
+| EU / EEA | `references/eu.md` | EMA, national competent authorities, GVP baseline |
+| United States | `references/us.md` | FDA (CDER / CBER), FAERS, REMS |
+| LATAM | `references/latam.md` | Brazil, Mexico, Colombia |
+| Africa | `references/africa.md` | Nigeria, South Africa, Kenya, Egypt |
 
-| Country | PV Authority | PV Portal / Reporting | Key Framework | URL |
-|---------|-------------|----------------------|---------------|-----|
-| UAE | EDE (Emirates Drug Establishment) — PV transferred from MOHAP under Federal Decree-Law No. 38 of 2024 | ede.gov.ae | GCC PV Guidelines + EDE-specific circulars | ede.gov.ae |
-| Saudi Arabia | SFDA (Saudi Food and Drug Authority) | SFDA PV portal; national ADR reporting | SFDA PV Guidelines (GCC-aligned) | sfda.gov.sa |
-| Kuwait | NCDSA / MOH | MOH Kuwait ADR reporting | GCC PV Guidelines | moh.gov.kw |
-| Qatar | MOPH (Ministry of Public Health) | MOPH portal | GCC PV Guidelines | moph.gov.qa |
-| Bahrain | NHRA (National Health Regulatory Authority) | NHRA portal | GCC PV Guidelines | nhra.bh |
-| Oman | MOH / DGSM | MOH Oman ADR portal | GCC PV Guidelines | moh.gov.om |
-
-**GCC-specific PV notes:**
-- Local QPPV/PV representative requirement: most GCC states require a locally-resident PV
-  contact affiliated with the local agent or MAH — verify per country
-- PSUR submission: GCC framework requires PSUR on ICH E2C schedule; some states accept
-  EU PSUR directly; confirm country-by-country
-- Expedited reporting: 15-day timeline for serious unexpected; confirm local portal vs. paper
-- PSMF: not all GCC states have published explicit PSMF requirements — apply immature
-  framework protocol where guidance is absent
-
----
-
-### EU / EEA
-
-| Entity | Role | Key Tools | URL |
-|--------|------|-----------|-----|
-| EMA | Central procedure MAs; GVP guidelines; EudraVigilance | GVP Modules I–XVI; EudraVigilance ICSR database | ema.europa.eu |
-| National CAs | Nationally authorised products; local PV inspections | VigiFlow or national databases | Varies by member state |
-
-**EU-specific PV notes:**
-- QPPV: must be permanently and continuously available; EU/EEA resident required for centrally
-  authorised products; GVP Module I
-- PSMF: mandatory; hosted in EU/EEA; single location stated in MA; GVP Module II
-- Expedited: E2B(R3) via EudraVigilance; 7-day fatal/life-threatening; 15-day other serious
-- PSUR/PBRER: EU PSUR procedure; IBD-based; GVP Module VII; PSURs for CAPs submitted to EMA
-- RMP: mandatory for new active substances, biosimilars, generics with safety concerns;
-  GVP Module V; effectiveness evaluation required for additional RMMs
-- Signal management: EudraVigilance access and routine ICSR mining mandatory; GVP Module IX
-- Literature monitoring: weekly Medline/Embase search; literature ICSRs reportable
-
----
-
-### US FDA
-
-| Area | Details |
-|------|---------|
-| PV Authority | FDA / CDER (drugs) or CBER (biologics) |
-| Reporting Portal | MedWatch (voluntary); FDA Safety Reporting Portal; FAERS (Adverse Event Reporting System) |
-| Expedited reporting | 15-day alert reports for serious unexpected ADRs (21 CFR 314.81 / 600.80); 7-day for fatal/life-threatening on request |
-| Periodic reporting | NDA / BLA Annual Report (not PSUR format); PSUR not required but may be submitted |
-| REMS | Risk Evaluation and Mitigation Strategy; required for high-risk products by FDA mandate; no EU RMP equivalent accepted as REMS |
-| QPPV equivalent | None — no formal QPPV requirement; US regulatory contact / agent required for foreign applicants |
-| PSMF equivalent | None — no formal PSMF requirement; internal pharmacovigilance SOPs expected |
-| Signal management | FDA monitors FAERS; MAH expected to conduct signal detection; formal obligation less prescriptive than EU GVP |
-| Literature monitoring | Obligation implied; literature cases reportable as ICSRs |
-
----
-
-### LATAM
-
-| Country | PV Authority | Key Framework | Expedited Timeline | PSUR Required? | QPPV / Local Contact | URL |
-|---------|-------------|---------------|-------------------|----------------|----------------------|-----|
-| Brazil | ANVISA | RDC 406/2020 (PV guideline); ICTQ-aligned | 15 days serious unexpected | Yes — PSUR on IBD-based schedule | Responsável Técnico (local pharmacist or equivalent) required; PV Technical Responsible | anvisa.gov.br |
-| Mexico | COFEPRIS | NOM-220-SSA1 (PV) | 15 days serious; 7-day fatal | PSUR required; local report (IPPA) may also be required | Local PV representative required; in-country presence | gob.mx/cofepris |
-| Colombia | INVIMA | Decree 677/1995 + INVIMA circulars | 15 days serious unexpected | Periodic safety reports required; PSUR may be accepted | Local PV representative required | invima.gov.co |
-
-**LATAM-specific PV notes:**
-- Local language (Spanish / Portuguese) requirements for ICSR narratives and labeling updates
-  are common across the region — verify per country
-- Brazil's ANVISA requires a Brazilian-resident Responsável Técnico who may carry PV
-  accountability; EU QPPV does not satisfy this obligation
-- Many LATAM countries have adopted ICH E2A/E2B conceptually but may not require E2B(R3)
-  format electronically — verify portal and format per country
-- PSUR acceptance varies: some countries require local bridging data or local-language summary
-
----
-
-### Africa
-
-| Country | PV Authority | Key Framework | Reporting Portal | PSUR Required? | URL |
-|---------|-------------|---------------|-----------------|----------------|-----|
-| Nigeria | NAFDAC | NAFDAC PV guidelines (WHO-aligned) | NAFDAC ADR portal; WHO VigiBase member | Yes — periodic reports required; schedule may differ from ICH | nafdac.gov.ng |
-| South Africa | SAHPRA | BN 69 of 2019 (PV regulations); NDA 42 | MedSafety / VigiFlow | PSUR required on IBD-based schedule | sahpra.org.za |
-| Kenya | PPB (Pharmacy and Poisons Board) | PPB PV guidelines; WHO-aligned | VigiFlow / national portal | Periodic reports required | pharmacyboardkenya.org |
-| Egypt | EDA (Egyptian Drug Authority) | EDA PV guidelines | EDA ADR portal | PSUR required | edaegypt.gov.eg |
-
-**Africa-specific PV notes:**
-- Many African markets have adopted WHO PV guidelines as the operative framework; use as
-  proxy where country-specific guidance is absent (apply immature framework protocol)
-- Local PV representative or responsible pharmacist requirements are common — verify
-  per country; EU QPPV typically insufficient
-- E2B(R3) electronic submission is not yet uniformly implemented; paper or email submission
-  may still be the primary channel — verify active portal per country
-- PSUR schedules may follow ICH conceptually but with local submission deadlines that differ —
-  always verify the exact DLP and submission window
+If the target country is not covered by any file, skip this step and research from scratch
+using Step 2 and Step 3. The EU file (`references/eu.md`) can also be read as the ICH/GVP
+baseline when flagging ⚠️ deviations.
 
 ---
 

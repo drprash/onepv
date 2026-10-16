@@ -1,6 +1,8 @@
-# Claude Code Skills
+# Claude Skills
 
-A collection of Claude Code skills for pharmacovigilance, regulatory affairs, and clinical research.
+A collection of Claude skills for pharmacovigilance, regulatory affairs, and clinical research.
+
+**To install a skill on claude.ai**, download its ready-made `.zip` and follow the step-by-step guide in the [main README](../README.md#how-to-install-on-claudeai).
 
 ## Skills
 

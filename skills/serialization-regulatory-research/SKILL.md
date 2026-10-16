@@ -89,6 +89,9 @@ it determines whether any obligation exists at all.
 
 ### Step 2 — Establish Whether a Requirement Exists (Binary Gate)
 
+If the country falls in a region listed under "Regional Reference Tables" below, read that
+region's file in `references/` first as a starting point (one file only).
+
 Before researching any technical detail, determine:
 
 **Is serialization / T&T legally required for this product category in this country?**
@@ -541,154 +544,24 @@ they overlap or create dual-compliance requirements.
 
 ## Regional Reference Tables
 
-### EU / EEA — Falsified Medicines Directive (FMD / EMVS)
+Region-specific system tables and notes are kept in separate files under `references/`.
+**Read only the file for the region of the target country** (during Step 2), and treat it as a
+starting point: always verify against current official sources, since deadlines, fees and
+system operators change frequently.
 
-| Element | Detail |
-|---------|--------|
-| **Legislation** | Directive 2011/62/EU (FMD) + Delegated Regulation (EU) 2016/161 |
-| **Authority** | EMA (policy); national competent authorities (enforcement) |
-| **National system** | European Medicines Verification System (EMVS), operated by EMVO (emvo-asso.com); national verification systems (NVS) in each member state |
-| **Scope** | Rx medicines; certain OTC products on positive list; exemptions for hospitals in some MS |
-| **Unique identifier** | GTIN + serial + batch + expiry; GS1 DataMatrix 2D |
-| **Serialization** | Item-level; serial number company-generated |
-| **Aggregation** | Not mandated by FMD but required by some member states |
-| **Verification** | At point of dispense by pharmacy; decommission upon dispensing |
-| **Anti-counterfeiting** | Tamper-evident closure mandatory on all Rx packs |
-| **Repository** | Upload at commissioning; national NVS verify at dispense |
-| **Fees** | MAH pays EMVO upload fees + national NVS fees (vary by MS) |
-| **Cross-border** | EMVS is shared across EU/EEA; not interoperable with non-EU systems |
-| **URL** | emvo-asso.com; ema.europa.eu |
+| Region | File | Covers |
+|--------|------|--------|
+| EU / EEA | `references/eu-fmd.md` | Falsified Medicines Directive, EMVS / NVS |
+| United States | `references/us-dscsa.md` | Drug Supply Chain Security Act |
+| EAEU | `references/eaeu.md` | Russia MDLP / Chestny Znak; Kazakhstan, Belarus, Armenia, Kyrgyzstan |
+| GCC | `references/gcc.md` | UAE Tatmeen, Saudi Arabia Salama; other GCC states |
+| LATAM | `references/latam.md` | Brazil SNCM, Mexico, Colombia |
+| Africa | `references/africa.md` | Nigeria, South Africa, Kenya, Egypt |
+| India | `references/india.md` | CDSCO track and trace |
 
----
-
-### US — Drug Supply Chain Security Act (DSCSA)
-
-| Element | Detail |
-|---------|--------|
-| **Legislation** | Drug Supply Chain Security Act (DSCSA) 2013; FDA DSCSA guidance |
-| **Authority** | FDA (CDER / CBER) |
-| **National system** | No single national repository; interoperable exchange between trading partners; FDA DSCSA pilot programs |
-| **Scope** | Prescription drugs (finished dosage forms); biologics; excludes: OTC, devices, veterinary |
-| **Unique identifier** | Serialized NDC (sNDC); GTIN + serial + lot + expiry; GS1 DataMatrix 2D |
-| **Serialization** | Item-level; full enforcement from November 2023 for manufacturers; wholesalers and dispensers phased |
-| **Aggregation** | Required for manufacturers and repackagers; GS1 EPCIS standard |
-| **Verification** | Saleable returns verification; authorized trading partners only |
-| **Anti-counterfeiting** | Tamper-evident packaging required (21 CFR 211.132) |
-| **Repository** | No centralized national repository; FDA exploring interoperable system (DSCSA pilot) |
-| **Fees** | No government repository fee; GS1 prefix costs apply |
-| **URL** | fda.gov/drugs/drug-supply-chain-security-act-dscsa |
-
----
-
-### EAEU — MDLP / Chestny Znak (Honest Mark)
-
-| Element | Detail |
-|---------|--------|
-| **Legislation** | Federal Law No. 61-FZ (Russia); EAEU agreements on labelling |
-| **Authority** | Roszdravnadzor (Russia — medicines oversight); CRPT (system operator) |
-| **National system** | MDLP (Medicine Drug Labeling and Tracking) operated by CRPT (Chestny Znak / chestnyznak.ru) |
-| **Scope** | All medicines circulating in Russia mandatory since 2020; Kazakhstan, Belarus, Armenia, Kyrgyzstan at varying stages — verify per country |
-| **Unique identifier** | DataMatrix 2D with crypto-protection code (KIZ); GTIN + serial + crypto-key issued by CRPT |
-| **Serialization** | Item-level mandatory; CRPT issues / validates the crypto-code — company cannot generate independently |
-| **Aggregation** | Mandatory; must reflect in MDLP system |
-| **Verification** | At pharmacy; MDLP check via Chestny Znak app or integrated POS |
-| **Anti-counterfeiting** | Crypto-protection code is the primary anti-counterfeiting mechanism |
-| **Repository** | CRPT MDLP — all events reported in real time; foreign manufacturers must register via local representative |
-| **Fees** | Registration with CRPT required; per-code fee applies; pricing published at chestnyznak.ru |
-| **Cross-border** | EAEU members moving toward shared system; Russia MDLP data does not satisfy EU/US obligations |
-| **URL** | chestnyznak.ru; roszdravnadzor.gov.ru |
-
----
-
-### GCC — Tatmeen (UAE) & Salama (Saudi Arabia)
-
-**UAE — Tatmeen**
-
-| Element | Detail |
-|---------|--------|
-| **Legislation** | EDE / MOHAP circulars on track and trace; Federal Decree-Law No. 38 of 2024 |
-| **Authority** | EDE (Emirates Drug Establishment) |
-| **National system** | Tatmeen (operated by Farasha Healthcare Solutions; tatmeen.ae) |
-| **Scope** | Registered human medicines (Rx priority); phased expansion |
-| **Unique identifier** | GS1 DataMatrix; GTIN + serial + batch + expiry |
-| **Serialization** | Item-level; MAH / importer commissions in Tatmeen |
-| **Aggregation** | Required for full T&T; SSCC-based |
-| **Verification** | At pharmacy via Tatmeen-connected scan |
-| **Repository** | Tatmeen — all supply chain events; registration required for MAH, wholesaler, pharmacy |
-| **Fees** | Tatmeen registration and annual fees — verify current schedule at tatmeen.ae |
-| **URL** | tatmeen.ae; ede.gov.ae |
-
-**Saudi Arabia — Salama**
-
-| Element | Detail |
-|---------|--------|
-| **Legislation** | SFDA Drug Track and Trace System regulations |
-| **Authority** | SFDA (Saudi Food and Drug Authority) |
-| **National system** | Salama (SFDA-operated; salama.sfda.gov.sa) |
-| **Scope** | Human medicines; phased by product type and company size |
-| **Unique identifier** | GS1 DataMatrix; GTIN + serial + batch + expiry; local product code (SFDA registration number) also required |
-| **Serialization** | Item-level; serial number registered in Salama before market entry |
-| **Aggregation** | Required |
-| **Verification** | At pharmacy / point of dispense |
-| **Repository** | Salama — all supply chain events; MAH must register and connect |
-| **Fees** | SFDA Salama registration fees — verify current schedule at sfda.gov.sa |
-| **URL** | salama.sfda.gov.sa; sfda.gov.sa |
-
-**Other GCC states:** Kuwait, Qatar, Bahrain, Oman are at varying stages of T&T implementation,
-often aligned with the GCC Standardization Organization (GSO) framework. Search per country —
-do not assume GCC-wide uniformity.
-
----
-
-### LATAM
-
-| Country | Authority | System | Scope | Status | Key Feature | URL |
-|---------|-----------|--------|-------|--------|-------------|-----|
-| **Brazil** | ANVISA | SNCM (Sistema Nacional de Controle de Medicamentos) | Rx medicines; phased by therapeutic area and company size | Live; phased rollout per RDC 653/2022 | DataMatrix 2D; GS1 standard; ANVISA issues authorization codes; SNCM upload required | anvisa.gov.br |
-| **Mexico** | COFEPRIS | National T&T system (in development) | Rx medicines | Requirement evolving — verify current status | Serialization mandated in concept; implementation guidance developing | gob.mx/cofepris |
-| **Colombia** | INVIMA | INVIMA T&T system | Priority medicines (antibiotics, biologics, controlled substances) | Phased rollout underway | DataMatrix; national INVIMA portal reporting | invima.gov.co |
-
-**LATAM-specific notes:**
-- Brazil's SNCM requires ANVISA to issue product authorization codes (CNPJ-linked) before
-  commissioning — this is not a company-generated serial; allow lead time for registration
-- Local language requirements for human-readable information (Spanish / Portuguese)
-- Customs integration with T&T status is developing in several LATAM markets — verify
-  import clearance implications per country
-
----
-
-### Africa
-
-| Country | Authority | System / Framework | Status | URL |
-|---------|-----------|-------------------|--------|-----|
-| **Nigeria** | NAFDAC | mPedigree / SafetyNET+ authentication; NAFDAC e-registration | Overt anti-counterfeiting mandatory (scratch-and-verify); full serialization in development | nafdac.gov.ng |
-| **South Africa** | SAHPRA | Serialization framework under development; GS1 alignment | Early stages; monitoring EU/GS1 standards for adoption | sahpra.org.za |
-| **Kenya** | PPB / KEBS | Product authentication (mPedigree-aligned); track and trace developing | Authentication system live; full T&T in progress | pharmacyboardkenya.org |
-| **Egypt** | EDA | EDA serialization requirements in development | Monitor EDA circulars for implementation dates | edaegypt.gov.eg |
-
-**Africa-specific notes:**
-- Mobile-based authentication (SMS scratch-and-verify via mPedigree or similar) is a common
-  interim anti-counterfeiting measure in markets without full serialization — may coexist with
-  or precede barcode-based systems
-- GS1 Africa actively working with national authorities on harmonized adoption; check
-  gs1.org/africa for country-level readiness maps
-
----
-
-### India — CDSCO Track and Trace
-
-| Element | Detail |
-|---------|--------|
-| **Legislation** | Drugs and Cosmetics Act; Schedule M (GMP); CDSCO barcode notification |
-| **Authority** | CDSCO (Central Drugs Standard Control Organization) |
-| **Scope** | All drugs manufactured in India; exports have had barcode requirement since 2011; domestic track and trace phased |
-| **Unique identifier** | 2D DataMatrix; GS1 preferred; GTIN + batch + expiry + serial (Rx); batch + expiry (OTC) |
-| **Serialization** | Item-level serialization for Rx domestic — phased by company size; export serialization long-standing |
-| **Aggregation** | Required for exports; domestic: phased |
-| **Repository** | National T&T system under development; state-level variation in enforcement |
-| **Anti-counterfeiting** | Hologram requirement for certain products (CDSCO-issued hologram stickers for specific categories) |
-| **Fees** | CDSCO registration fees; GS1 India prefix fees (gs1india.org) |
-| **URL** | cdsco.gov.in; gs1india.org |
+If the target country is not covered by any file, skip this step and research from scratch
+using Step 2 and Step 3. The EU FMD and US DSCSA files can also be read as the baseline
+when flagging ⚠️ deviations.
 
 ---
 
