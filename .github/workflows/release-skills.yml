@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - "skills/**"
+      - "!skills/README.md"
       - "scripts/package_skills.py"
   workflow_dispatch:
 

@@ -84,19 +84,19 @@ No technical knowledge is needed. You do this once per skill.
 
 **Location:** [`skills/clinical-2x2-study-analyzer/`](skills/clinical-2x2-study-analyzer/)
 
-Extracts binary outcome data from clinical study text and produces a full epidemiological analysis: 2×2 contingency table, relative risk, odds ratio, absolute risk reduction, NNT/NNH, 95% confidence intervals, and chi-square or Fisher exact tests. Outputs publication-ready tables and manuscript summaries.
+Extracts binary outcome data from clinical study text and produces a full epidemiological analysis: 2×2 contingency table, relative risk, odds ratio, absolute risk reduction, NNT/NNH, 95% confidence intervals, and chi-square or Fisher exact tests. Confirms the extracted numbers with you first, then uses a bundled calculation script for exact results. Outputs publication-ready tables and manuscript summaries.
 
 ### Pharmaceutical Regulatory Research
 
 **Location:** [`skills/pharma-regulatory-research/`](skills/pharma-regulatory-research/)
 
-Researches pharmaceutical product registration requirements for any country. Produces a business-plan-ready report covering registration pathways, step-by-step procedures, official fees (local currency + USD), timelines, and go/no-go business considerations — tailored to the applicant's role (local manufacturer, foreign MAH, local agent, distributor, etc.).
+Researches pharmaceutical product registration requirements for any country. Produces a business-plan-ready report that opens with a key-facts summary, then covers the regulatory framework, registration pathways, which foreign approvals are accepted (FDA, EMA, WHO, regional procedures, CPP), step-by-step procedures, required documents, timelines, pricing approval, official fees (local currency + USD), and go/no-go business considerations — tailored to the applicant's role (local manufacturer, foreign MAH, local agent, distributor, etc.). Includes an optional registration readiness checklist.
 
 ### Pharmacovigilance Regulatory Research
 
 **Location:** [`skills/pv-regulatory-research/`](skills/pv-regulatory-research/)
 
-Researches pharmacovigilance obligations for any country. Covers QPPV/local PV contact requirements, PSMF, expedited ICSR reporting timelines, PSUR/PBRER schedules, signal management, risk management plans, literature monitoring, and whether international documents (EU PSUR, EU RMP, E2B(R3)) are accepted locally. Includes a consolidated PV obligations summary table and an optional compliance readiness checklist.
+Researches pharmacovigilance obligations for any country. Covers QPPV/local PV contact requirements, PSMF, expedited ICSR reporting timelines, PSUR/PBRER schedules, signal management, risk management plans, literature monitoring, and whether international documents (EU PSUR, EU RMP, E2B(R3)) are accepted locally. Includes a consolidated PV obligations summary table, an optional compliance readiness checklist, and reference notes for GCC, EU, US, LATAM, and Africa.
 
 ### Serialization & Track and Trace Research
 
@@ -108,7 +108,7 @@ Researches serialization and track & trace requirements for any product category
 
 **Location:** [`skills/vet-regulatory-research/`](skills/vet-regulatory-research/)
 
-Researches veterinary product registration requirements for any country across all product categories — medicines, vaccines, medicated feed, feed additives, nutritional supplements, diagnostics, disinfectants, and pet food. Accounts for multi-authority structures, species-specific requirements (MRL and withdrawal periods for food-producing animals), and vaccine batch release obligations.
+Researches veterinary product registration requirements for any country across all product categories — medicines, vaccines, medicated feed, feed additives, nutritional supplements, diagnostics, disinfectants, and pet food. Produces a report that opens with a key-facts summary and covers which authorities govern the product, registration pathways, which foreign approvals and dossiers are accepted, required documents, timelines, and costs. Accounts for multi-authority structures, species-specific requirements (MRL and withdrawal periods for food-producing animals), and vaccine batch release obligations. Includes an optional registration readiness checklist.
 
 ---
 
